@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express, { Request, Response, Router } from 'express';
 import compression from 'compression';
 import path from 'path';
 
@@ -42,7 +42,7 @@ export class Server {
 
 
     //* SPA
-    this.app.get('*', (req, res) => {
+    this.app.get('*', (req: Request, res: Response) => {
       const indexPath = path.join( __dirname + `../../../${ this.publicPath }/index.html` );
       res.sendFile(indexPath);
     });
