@@ -1,5 +1,8 @@
 import { Router } from 'express';
+
 import { TodoRoutes } from './todos/routes';
+
+
 
 
 export class AppRoutes {
@@ -10,6 +13,9 @@ export class AppRoutes {
     const router = Router();
 
     router.use('/api/todos', TodoRoutes.routes );
+    
+
+
 
     return router;
   }
