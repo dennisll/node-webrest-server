@@ -1,13 +1,15 @@
-import fs from 'fs';
-import http2 from 'http2';
+//import fs from 'fs';
+//import http2 from 'http2';
+import * as fs from 'node:fs';
+import http2, { Http2ServerRequest, Http2ServerResponse } from 'node:http2';
 
 
 const server = http2.createSecureServer({
   key: fs.readFileSync('./keys/server.key'),
   cert: fs.readFileSync('./keys/server.crt'),
-},(req, res) => {
+},(req: Http2ServerRequest, res: Http2ServerResponse) => {
 
-  console.log(req.url);
+  // console.log(req.url);
 
   // res.writeHead(200, { 'Content-Type': 'text/html' });
   // res.write(`<h1>URL ${ req.url }</h1>`);
@@ -24,11 +26,10 @@ const server = http2.createSecureServer({
     res.end( htmlFile );
     return;
   } 
-
-  
   if ( req.url?.endsWith('.js') ) {
     res.writeHead(200, { 'Content-Type': 'application/javascript' });
-  } else if( req.url?.endsWith('.css')) {
+  }
+  if( req.url?.endsWith('.css')) {
     res.writeHead(200, { 'Content-Type': 'text/css' });
   }
 
@@ -41,10 +42,6 @@ const server = http2.createSecureServer({
     res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end();
   }
-
-
-
-
 });
 
 
