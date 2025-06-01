@@ -1,4 +1,4 @@
-import fs from 'fs';
+/* import fs from 'fs';
 import http from 'http';
 
 
@@ -31,16 +31,11 @@ const server = http.createServer((req, res) => {
   const responseContent = fs.readFileSync(`./public${ req.url }`,'utf-8');
   res.end(responseContent);
 
-
-
-
 });
-
-
 
 server.listen(8080, () => {
   console.log('Server running on port 8080');
 })
-
+ */
 
 
