@@ -3,8 +3,9 @@
 node_modules/
 keys/
 .env
-
 /postgres
-
+/postgres-test
+.yaml
 dist/
+
 
